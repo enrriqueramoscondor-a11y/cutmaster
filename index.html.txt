@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cut Master | Tienda Online Corte Láser Tarapoto</title>
+  <meta name="description" content="Compra llaveros, trofeos y productos personalizados en Cut Master - Corte láser en Tarapoto.">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white font-sans text-gray-900">
+
+<header class="bg-black text-white p-4 flex justify-between">
+  <h1 class="font-bold">CUT MASTER</h1>
+  <button onclick="toggleCart()">🛒 Carrito (<span id="cart-count">0</span>)</button>
+</header>
+
+<!-- PRODUCTOS -->
+<section class="max-w-6xl mx-auto py-12 px-6">
+  <h2 class="text-3xl font-bold mb-8">Tienda Online</h2>
+
+  <div class="grid md:grid-cols-3 gap-6">
+
+    <div class="border p-4 rounded-xl">
+      <img src="img/producto1.jpg" class="mb-3 rounded">
+      <h3 class="font-bold">Llavero personalizado</h3>
+      <p>S/ 10.00</p>
+      <button onclick="addToCart('Llavero',10)" class="bg-black text-white px-4 py-2 mt-2">Agregar</button>
+    </div>
+
+    <div class="border p-4 rounded-xl">
+      <img src="img/producto2.jpg" class="mb-3 rounded">
+      <h3 class="font-bold">Trofeo personalizado</h3>
+      <p>S/ 80.00</p>
+      <button onclick="addToCart('Trofeo',80)" class="bg-black text-white px-4 py-2 mt-2">Agregar</button>
+    </div>
+
+    <div class="border p-4 rounded-xl">
+      <img src="img/producto3.jpg" class="mb-3 rounded">
+      <h3 class="font-bold">Maqueta</h3>
+      <p>S/ 150.00</p>
+      <button onclick="addToCart('Maqueta',150)" class="bg-black text-white px-4 py-2 mt-2">Agregar</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- CARRITO -->
+<div id="cart" class="fixed right-0 top-0 w-80 h-full bg-white shadow-lg p-4 hidden">
+  <h3 class="font-bold mb-4">Carrito</h3>
+  <ul id="cart-items"></ul>
+  <p class="mt-4 font-bold">Total: S/ <span id="total">0</span></p>
+  <button onclick="checkout()" class="bg-green-500 text-white w-full mt-4 py-2">Finalizar por WhatsApp</button>
+</div>
+
+<script>
+let cart = [];
+
+function addToCart(name, price){
+  cart.push({name, price});
+  updateCart();
+}
+
+function updateCart(){
+  let list = document.getElementById('cart-items');
+  let total = 0;
+  list.innerHTML = '';
+
+  cart.forEach(item => {
+    total += item.price;
+    list.innerHTML += `<li>${item.name} - S/ ${item.price}</li>`;
+  });
+
+  document.getElementById('total').innerText = total;
+  document.getElementById('cart-count').innerText = cart.length;
+}
+
+function toggleCart(){
+  document.getElementById('cart').classList.toggle('hidden');
+}
+
+function checkout(){
+  let message = 'Hola, quiero comprar:%0A';
+  cart.forEach(item => {
+    message += `- ${item.name} S/ ${item.price}%0A`;
+  });
+
+  window.open(`https://wa.me/51974483083?text=${message}`);
+}
+</script>
+
+</body>
+</html>
