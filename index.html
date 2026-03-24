@@ -3,90 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cut Master | Tienda Online Corte Láser Tarapoto</title>
-  <meta name="description" content="Compra llaveros, trofeos y productos personalizados en Cut Master - Corte láser en Tarapoto.">
+  <title>Cut Master | Diseño & Corte Láser en Tarapoto</title>
+  <meta name="description" content="Cut Master - Llaveros, trofeos, maquetas y diseño en MDF con corte láser en Tarapoto.">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-white font-sans text-gray-900">
+<body class="bg-white font-[Inter] text-gray-900">
 
-<header class="bg-black text-white p-4 flex justify-between">
-  <h1 class="font-bold">CUT MASTER</h1>
-  <button onclick="toggleCart()">🛒 Carrito (<span id="cart-count">0</span>)</button>
+<!-- NAV -->
+<header class="fixed top-0 w-full bg-white/80 backdrop-blur shadow-sm z-50">
+  <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
+    <h1 class="text-xl font-bold">CUT MASTER</h1>
+    <a href="https://wa.me/51974483083" class="bg-black text-white px-4 py-2 rounded-xl text-sm">WhatsApp</a>
+  </div>
 </header>
 
+<!-- HERO -->
+<section class="h-screen flex items-center justify-center text-center px-6" style="background:url('img/producto1.jpg') center/cover no-repeat">
+  <div class="bg-black/60 p-10 rounded-2xl">
+    <h2 class="text-5xl text-white font-bold mb-4">Corte Láser Premium</h2>
+    <p class="text-gray-200 mb-6">Llaveros, trofeos, maquetas y diseño personalizado en Tarapoto</p>
+    <a href="https://wa.me/51974483083?text=Hola%20quiero%20cotizar" class="bg-white text-black px-6 py-3 rounded-xl">Cotizar ahora</a>
+  </div>
+</section>
+
 <!-- PRODUCTOS -->
-<section class="max-w-6xl mx-auto py-12 px-6">
-  <h2 class="text-3xl font-bold mb-8">Tienda Online</h2>
+<section class="max-w-7xl mx-auto py-20 px-6">
+  <h3 class="text-3xl font-bold mb-10">Productos destacados</h3>
+  <div class="grid md:grid-cols-3 gap-8">
 
-  <div class="grid md:grid-cols-3 gap-6">
-
-    <div class="border p-4 rounded-xl">
-      <img src="img/producto1.jpg" class="mb-3 rounded">
-      <h3 class="font-bold">Llavero personalizado</h3>
-      <p>S/ 10.00</p>
-      <button onclick="addToCart('Llavero',10)" class="bg-black text-white px-4 py-2 mt-2">Agregar</button>
+    <div class="group">
+      <img src="img/producto1.jpg" class="rounded-xl mb-4 shadow">
+      <h4 class="font-semibold">Llaveros personalizados</h4>
+      <p class="text-gray-500 text-sm">Desde S/10</p>
     </div>
 
-    <div class="border p-4 rounded-xl">
-      <img src="img/producto2.jpg" class="mb-3 rounded">
-      <h3 class="font-bold">Trofeo personalizado</h3>
-      <p>S/ 80.00</p>
-      <button onclick="addToCart('Trofeo',80)" class="bg-black text-white px-4 py-2 mt-2">Agregar</button>
+    <div class="group">
+      <img src="img/producto2.jpg" class="rounded-xl mb-4 shadow">
+      <h4 class="font-semibold">Trofeos premium</h4>
+      <p class="text-gray-500 text-sm">Desde S/80</p>
     </div>
 
-    <div class="border p-4 rounded-xl">
-      <img src="img/producto3.jpg" class="mb-3 rounded">
-      <h3 class="font-bold">Maqueta</h3>
-      <p>S/ 150.00</p>
-      <button onclick="addToCart('Maqueta',150)" class="bg-black text-white px-4 py-2 mt-2">Agregar</button>
+    <div class="group">
+      <img src="img/producto3.jpg" class="rounded-xl mb-4 shadow">
+      <h4 class="font-semibold">Maquetas arquitectónicas</h4>
+      <p class="text-gray-500 text-sm">Alta precisión</p>
     </div>
 
   </div>
 </section>
 
-<!-- CARRITO -->
-<div id="cart" class="fixed right-0 top-0 w-80 h-full bg-white shadow-lg p-4 hidden">
-  <h3 class="font-bold mb-4">Carrito</h3>
-  <ul id="cart-items"></ul>
-  <p class="mt-4 font-bold">Total: S/ <span id="total">0</span></p>
-  <button onclick="checkout()" class="bg-green-500 text-white w-full mt-4 py-2">Finalizar por WhatsApp</button>
-</div>
+<!-- GALERIA -->
+<section class="bg-gray-100 py-20 px-6">
+  <div class="max-w-7xl mx-auto">
+    <h3 class="text-3xl font-bold mb-10">Trabajos reales</h3>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <img src="img/galeria1.jpg" class="rounded-xl">
+      <img src="img/galeria2.jpg" class="rounded-xl">
+      <img src="img/galeria3.jpg" class="rounded-xl">
+      <img src="img/galeria4.jpg" class="rounded-xl">
+    </div>
+  </div>
+</section>
 
-<script>
-let cart = [];
+<!-- CTA -->
+<section class="py-20 text-center">
+  <h3 class="text-3xl font-bold mb-4">¿Tienes una idea?</h3>
+  <p class="text-gray-500 mb-6">La fabricamos para ti</p>
+  <a href="https://wa.me/51974483083?text=Hola%20quiero%20un%20diseño" class="bg-black text-white px-8 py-3 rounded-xl">Empezar proyecto</a>
+</section>
 
-function addToCart(name, price){
-  cart.push({name, price});
-  updateCart();
-}
-
-function updateCart(){
-  let list = document.getElementById('cart-items');
-  let total = 0;
-  list.innerHTML = '';
-
-  cart.forEach(item => {
-    total += item.price;
-    list.innerHTML += `<li>${item.name} - S/ ${item.price}</li>`;
-  });
-
-  document.getElementById('total').innerText = total;
-  document.getElementById('cart-count').innerText = cart.length;
-}
-
-function toggleCart(){
-  document.getElementById('cart').classList.toggle('hidden');
-}
-
-function checkout(){
-  let message = 'Hola, quiero comprar:%0A';
-  cart.forEach(item => {
-    message += `- ${item.name} S/ ${item.price}%0A`;
-  });
-
-  window.open(`https://wa.me/51974483083?text=${message}`);
-}
-</script>
+<!-- FOOTER -->
+<footer class="bg-black text-white text-center p-6">
+  <p>Cut Master - Tarapoto</p>
+  <p>WhatsApp: 974 483 083</p>
+</footer>
 
 </body>
 </html>
