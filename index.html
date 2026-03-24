@@ -4,68 +4,70 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cut Master | Corte Láser Premium</title>
-  <meta name="description" content="Cut Master - Corte láser en Tarapoto, llaveros, trofeos y maquetas personalizadas.">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-white font-[Inter] text-gray-900">
+<body class="bg-gray-50 font-[Inter] text-gray-900">
 
 <!-- NAV -->
-<header class="fixed top-0 w-full bg-white/80 backdrop-blur shadow-sm z-50">
+<header class="fixed top-0 w-full bg-white shadow z-50">
   <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
     <h1 class="text-xl font-bold">CUT MASTER</h1>
-    <a href="https://wa.me/51974483083" class="bg-black text-white px-4 py-2 rounded-xl text-sm">WhatsApp</a>
+    <div class="flex gap-3">
+      <button onclick="toggleCart()" class="bg-gray-200 px-4 py-2 rounded-xl">🛒</button>
+      <a href="https://wa.me/51974483083" class="bg-black text-white px-4 py-2 rounded-xl">WhatsApp</a>
+    </div>
   </div>
 </header>
 
 <!-- HERO -->
 <section class="h-screen flex items-center justify-center text-center px-6" style="background:url('img/producto1.jpg') center/cover no-repeat">
   <div class="bg-black/60 p-10 rounded-2xl">
-    <h2 class="text-5xl text-white font-bold mb-4">Diseño & Corte Láser</h2>
-    <p class="text-gray-200 mb-6">Productos personalizados de alto nivel en Tarapoto</p>
-    <a href="https://wa.me/51974483083?text=Hola%20quiero%20cotizar" class="bg-white text-black px-6 py-3 rounded-xl">Cotizar ahora</a>
+    <h2 class="text-5xl text-white font-bold mb-4">Corte Láser Profesional</h2>
+    <p class="text-gray-200 mb-6">Diseño personalizado en MDF, acrílico y más</p>
+    <a href="#productos" class="bg-white text-black px-6 py-3 rounded-xl">Ver productos</a>
   </div>
 </section>
 
-<!-- PRODUCTOS + COMPRA -->
-<section class="max-w-7xl mx-auto py-20 px-6">
-  <h3 class="text-3xl font-bold mb-10">Comprar productos</h3>
+<!-- PRODUCTOS -->
+<section id="productos" class="max-w-7xl mx-auto py-20 px-6">
+  <h3 class="text-3xl font-bold mb-10">Productos</h3>
   <div class="grid md:grid-cols-3 gap-8">
 
-    <div class="border p-4 rounded-xl">
+    <div class="bg-white p-4 rounded-xl shadow hover:scale-105 transition">
       <img src="img/producto1.jpg" class="rounded mb-3">
-      <h4 class="font-bold">Llavero personalizado</h4>
+      <h4 class="font-bold">Llaveros</h4>
       <p>S/ 10</p>
-      <button onclick="addToCart('Llavero',10)" class="bg-black text-white px-4 py-2 mt-2">Agregar</button>
+      <button onclick="addToCart('Llavero',10)" class="bg-black text-white w-full mt-2 py-2 rounded">Agregar</button>
     </div>
 
-    <div class="border p-4 rounded-xl">
+    <div class="bg-white p-4 rounded-xl shadow hover:scale-105 transition">
       <img src="img/producto2.jpg" class="rounded mb-3">
-      <h4 class="font-bold">Trofeo</h4>
+      <h4 class="font-bold">Trofeos</h4>
       <p>S/ 80</p>
-      <button onclick="addToCart('Trofeo',80)" class="bg-black text-white px-4 py-2 mt-2">Agregar</button>
+      <button onclick="addToCart('Trofeo',80)" class="bg-black text-white w-full mt-2 py-2 rounded">Agregar</button>
     </div>
 
-    <div class="border p-4 rounded-xl">
+    <div class="bg-white p-4 rounded-xl shadow hover:scale-105 transition">
       <img src="img/producto3.jpg" class="rounded mb-3">
-      <h4 class="font-bold">Maqueta</h4>
+      <h4 class="font-bold">Maquetas</h4>
       <p>S/ 150</p>
-      <button onclick="addToCart('Maqueta',150)" class="bg-black text-white px-4 py-2 mt-2">Agregar</button>
+      <button onclick="addToCart('Maqueta',150)" class="bg-black text-white w-full mt-2 py-2 rounded">Agregar</button>
     </div>
 
   </div>
 </section>
 
-<!-- CARRITO -->
-<div id="cart" class="fixed right-0 top-0 w-80 h-full bg-white shadow-lg p-4 hidden">
+<!-- CARRITO LATERAL -->
+<div id="cart" class="fixed right-0 top-0 w-80 h-full bg-white shadow-lg p-4 transform translate-x-full transition">
   <h3 class="font-bold mb-4">Carrito</h3>
   <ul id="cart-items"></ul>
   <p class="mt-4 font-bold">Total: S/ <span id="total">0</span></p>
   <img src="img/qr.jpg" class="my-4">
-  <button onclick="checkout()" class="bg-green-500 text-white w-full py-2">Pagar por WhatsApp</button>
+  <button onclick="checkout()" class="bg-green-500 text-white w-full py-2 rounded">Comprar por WhatsApp</button>
 </div>
 
-<!-- BOTÓN FLOTANTE -->
+<!-- BOTÓN WHATSAPP -->
 <a href="https://wa.me/51974483083" class="fixed bottom-5 right-5 bg-green-500 text-white p-4 rounded-full shadow-lg">💬</a>
 
 <script>
@@ -89,6 +91,11 @@ function updateCart(){
   document.getElementById('total').innerText = total;
 }
 
+function toggleCart(){
+  let cartEl = document.getElementById('cart');
+  cartEl.classList.toggle('translate-x-full');
+}
+
 function checkout(){
   let message = 'Hola quiero comprar:%0A';
   cart.forEach(item => {
@@ -100,18 +107,3 @@ function checkout(){
 
 </body>
 </html>
-<header class="fixed top-0 w-full bg-white/80 backdrop-blur shadow-sm z-50">
-  <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
-    <h1 class="text-xl font-bold">CUT MASTER</h1>
-    
-    <div class="flex gap-4">
-      <button onclick="toggleCart()" class="bg-gray-200 px-4 py-2 rounded-xl">
-        🛒 Carrito
-      </button>
-
-      <a href="https://wa.me/51974483083" class="bg-black text-white px-4 py-2 rounded-xl text-sm">
-        WhatsApp
-      </a>
-    </div>
-  </div>
-</header>
